@@ -1,57 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="500" viewBox="0 0 880 500" font-family="-apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="660" viewBox="0 0 920 660" font-family="-apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/>
     </linearGradient>
-    <pattern id="mosaic" width="8" height="8" patternUnits="userSpaceOnUse">
-      <rect width="8" height="8" fill="#334155"/><rect width="4" height="4" fill="#475569"/>
-    </pattern>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e293b"/><stop offset="1" stop-color="#172033"/>
+    </linearGradient>
   </defs>
-  <rect width="880" height="500" fill="url(#bg)" rx="12"/>
-  <text x="32" y="48" fill="#f1f5f9" font-size="21" font-weight="600">越权链验证 · 成果示意图</text>
-  <text x="32" y="72" fill="#94a3b8" font-size="12">所有可识别信息（姓名 / 手机 / 证件 / ID / 机构）均已打码 · 数据来自授权测试</text>
+  <rect width="920" height="660" fill="url(#bg)" rx="12"/>
 
-  <!-- 表格头 -->
-  <rect x="32" y="92" width="816" height="34" fill="#334155" rx="4"/>
-  <text x="48" y="114" fill="#cbd5e1" font-size="12">验证步骤</text>
-  <text x="300" y="114" fill="#cbd5e1" font-size="12">拿到的数据</text>
-  <text x="560" y="114" fill="#cbd5e1" font-size="12">脱敏后效果</text>
-  <text x="760" y="114" fill="#cbd5e1" font-size="12">结果</text>
+  <text x="36" y="52" fill="#f1f5f9" font-size="22" font-weight="600">小程序安全评估 · 成果全景</text>
+  <text x="36" y="76" fill="#94a3b8" font-size="12">全部可识别信息（项目名 / 机构 / 姓名 / 手机 / 证件 / ID / 域名）均已移除 · 仅保留统计口径</text>
 
-  <!-- 行 -->
-  <g font-size="12" fill="#e2e8f0">
-    <!-- 1 -->
-    <rect x="32" y="128" width="816" height="52" fill="#1e293b"/>
-    <text x="48" y="158">零 token 读他人健康数据</text>
-    <text x="300" y="158">HTTP 200 + 真实指标</text>
-    <text x="560" y="158" fill="#64748b">████ ██████</text>
-    <text x="760" y="158" fill="#4ade80">✓ 通过</text>
-    <!-- 2 -->
-    <rect x="32" y="182" width="816" height="52" fill="#0f172a"/>
-    <text x="48" y="212">全量列表泄露患者 ID</text>
-    <text x="300" y="212">47 条 · 11 个他人 ID</text>
-    <text x="560" y="212" fill="#64748b">████████████</text>
-    <text x="760" y="212" fill="#4ade80">✓ 通过</text>
-    <!-- 3 -->
-    <rect x="32" y="236" width="816" height="52" fill="#1e293b"/>
-    <text x="48" y="266">患者 ID 换姓名/手机</text>
-    <text x="300" y="266">姓名 + 手机 + 就诊号</text>
-    <text x="560" y="266" fill="#64748b">███ █████████</text>
-    <text x="760" y="266" fill="#4ade80">✓ 通过</text>
-    <!-- 4 -->
-    <rect x="32" y="290" width="816" height="52" fill="#0f172a"/>
-    <text x="48" y="320">患者 ID 换检验报告</text>
-    <text x="300" y="320">19 份 · 反拆深层 ID</text>
-    <text x="560" y="320" fill="#64748b">████████ ████</text>
-    <text x="760" y="320" fill="#4ade80">✓ 通过</text>
-    <!-- 5 -->
-    <rect x="32" y="344" width="816" height="52" fill="#1e293b"/>
-    <text x="48" y="374">财务接口零参数全量</text>
-    <text x="300" y="374">185 账户 · 27791 流水</text>
-    <text x="560" y="374" fill="#64748b">████████████</text>
-    <text x="760" y="374" fill="#4ade80">✓ 通过</text>
+  <g>
+    <rect x="36" y="98" width="200" height="82" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="56" y="128" fill="#60a5fa" font-size="26" font-weight="700">35</text>
+    <text x="56" y="156" fill="#cbd5e1" font-size="12">评估目标数</text>
+
+    <rect x="250" y="98" width="200" height="82" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="270" y="128" fill="#60a5fa" font-size="26" font-weight="700">300+</text>
+    <text x="270" y="156" fill="#cbd5e1" font-size="12">覆盖接口数</text>
+
+    <rect x="464" y="98" width="200" height="82" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="484" y="128" fill="#f87171" font-size="26" font-weight="700">5</text>
+    <text x="484" y="156" fill="#cbd5e1" font-size="12">可复现越权点</text>
+
+    <rect x="678" y="98" width="206" height="82" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="698" y="128" fill="#4ade80" font-size="26" font-weight="700">0</text>
+    <text x="698" y="156" fill="#cbd5e1" font-size="12">真注入（误报已剔除）</text>
   </g>
 
-  <rect x="32" y="416" width="816" height="52" fill="#1e3a5f" rx="4"/>
-  <text x="48" y="446" fill="#93c5fd" font-size="12">判据：本人 ID vs 他人 ID / 有 token vs 无 token 对照实测 · 只写可复现结论</text>
+  <text x="36" y="212" fill="#e2e8f0" font-size="14" font-weight="600">分项目成果（匿名）</text>
+
+  <rect x="36" y="226" width="848" height="96" rx="6" fill="#1e293b"/>
+  <text x="52" y="252" fill="#93c5fd" font-size="13" font-weight="600">项目 A · 医疗平台</text>
+  <text x="52" y="274" fill="#cbd5e1" font-size="11.5">未授权访问 · 全量列表泄露 · 对象越权（PII / 报告 / 财务）· 报告 ID 反拆</text>
+  <text x="52" y="296" fill="#64748b" font-size="11.5">规模：账户 185 · 流水 2.7 万+ · 报告 1900+ · 检查项 1.7 万+ · 患者标识 11</text>
+  <text x="52" y="314" fill="#4ade80" font-size="11.5">5 个越权点全部对照实测通过 · 前端可复现 4 个</text>
+
+  <rect x="36" y="330" width="848" height="74" rx="6" fill="#0f172a"/>
+  <text x="52" y="356" fill="#93c5fd" font-size="13" font-weight="600">项目 B · 健康服务</text>
+  <text x="52" y="378" fill="#cbd5e1" font-size="11.5">网关接口 41 个逐个探测 · 免登录配置面可达 · 敏感接口有加密 + 会话防护</text>
+  <text x="52" y="396" fill="#64748b" font-size="11.5">结果：未发现可直接越权点（防护较完整）</text>
+
+  <rect x="36" y="412" width="848" height="74" rx="6" fill="#1e293b"/>
+  <text x="52" y="438" fill="#93c5fd" font-size="13" font-weight="600">项目 C · 出行缴费</text>
+  <text x="52" y="460" fill="#cbd5e1" font-size="11.5">自动爬页抓真实请求 · 业务接口 28 个 · 完整请求体 18 个</text>
+  <text x="52" y="478" fill="#64748b" font-size="11.5">越权对照 + 注入测试：0 发现（token 签名 + 网关鉴权生效）</text>
+
+  <rect x="36" y="494" width="848" height="60" rx="6" fill="#0f172a"/>
+  <text x="52" y="520" fill="#93c5fd" font-size="13" font-weight="600">项目 D · AI 助手插件</text>
+  <text x="52" y="542" fill="#cbd5e1" font-size="11.5">网关鉴权链纯报错驱动摸清 · 无未授权入口</text>
+
+  <rect x="36" y="574" width="848" height="58" rx="6" fill="#1e3a5f"/>
+  <text x="52" y="600" fill="#93c5fd" font-size="12">方法：先画攻击面地图 → 找钥匙链 → 对照实验证伪（本人 vs 他人 / 有 vs 无凭证 / 时间中位数）→ 只交付可复现结论</text>
+  <text x="52" y="620" fill="#64748b" font-size="11">图内所有数字为脱敏后的统计口径，不对应任何真实项目、机构或个人</text>
 </svg>
