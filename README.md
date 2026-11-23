@@ -5,6 +5,12 @@
 
 [![License: GPL-2.0](https://img.shields.io/badge/License-GPL--2.0-blue.svg)](LICENSE)
 
+## 成果示意（已脱敏）
+
+![越权链验证成果示意](assets/proof-masked.svg)
+
+> 图中姓名 / 手机 / 证件 / ID / 机构全部打码；仅展示验证结构与数据规模。
+
 ---
 
 ## 它解决什么问题
@@ -131,4 +137,6 @@ python tools/sanitize_check.py
 
 ## 致谢
 
-感谢所有开源组件与安全社区对自动化安全评估方法的贡献。
+本项目的小程序动态分析能力建立在 [WMP-pentest-automation](https://github.com/hello-xiaoniao/WMP-pentest-automation) 之上——该项目解决了微信小程序更新后偏移值变化导致的注入失败问题，是整套工具链的基础。感谢原作者的开源贡献。
+
+同时感谢所有开源组件与安全社区对自动化安全评估方法的贡献。
