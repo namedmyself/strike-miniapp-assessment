@@ -1,0 +1,13 @@
+{
+  "_comment": "复制本文件为 strike.config.json 后按本机环境填写。所有字段都可被同名环境变量覆盖。",
+  "wmp_root": "WMP-pentest-automation",
+  "artex_ctl": "",
+  "artex_src": "",
+  "_env_overrides": {
+    "wmp_root": "STRIKE_WMP_ROOT",
+    "artex_ctl": "STRIKE_ARTEX_CTL",
+    "artex_src": "STRIKE_ARTEX_SRC",
+    "mcp_token": "STRIKE_MCP_TOKEN"
+  },
+  "_note": "不要把真实 token、密码、目标域名写进本文件。提交前运行 python tools/sanitize_check.py。"
+}

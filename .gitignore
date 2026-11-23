@@ -1,0 +1,53 @@
+# ===== 运行时依赖（可再生，不进仓库）=====
+.venv/
+venv/
+.runtime/
+node_modules/
+npm-debug.log*
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# ===== IDE / 系统 =====
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# ===== STRIKE 自身敏感文件 =====
+.strike_engaged.json
+strike.config.json
+output/
+logs/
+__pycache__/
+*.py[cod]
+
+# ===== 真实目标数据 / 凭据（绝不能进仓库）=====
+# token、密码、JWT、缓存
+token.txt
+*.token
+.auth.json
+*_password*.html
+*.pid
+wxid.db
+
+# 真实抓包/报告产物（含受害者 PII 与 token）
+output/
+**/burp-raw*.txt
+**/burp-repro*.txt
+**/*verdict*.json
+**/*evidence*.json
+**/captured-*.json
+**/full-requests.json
+**/*-probe*.json
+**/*repro*.json
+
+# 调试/运行态
+*.log
+.DS_Store
+Thumbs.db

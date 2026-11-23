@@ -1,0 +1,9 @@
+{
+  "Version": "4.1.0.240",
+  "ModuleName": "WeChatAppEx Framework",
+  "CDPFilterHookOffset": "0x7D71940",
+  "SceneHookOffset": "0x7D80A10",
+  "SceneOffsets": [8, 1336, 16, 488],
+  "LoadStartHookOffset": "0x4EAF204",
+  "ResourceCachePolicyHookOffset": "0x4F0555C"
+}
