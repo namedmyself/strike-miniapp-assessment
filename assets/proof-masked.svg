@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="660" viewBox="0 0 920 660" font-family="-apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" font-family="-apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/>
@@ -7,52 +7,67 @@
       <stop offset="0" stop-color="#1e293b"/><stop offset="1" stop-color="#172033"/>
     </linearGradient>
   </defs>
-  <rect width="920" height="660" fill="url(#bg)" rx="12"/>
+  <rect width="960" height="760" fill="url(#bg)" rx="12"/>
 
-  <text x="36" y="52" fill="#f1f5f9" font-size="22" font-weight="600">小程序安全评估 · 成果全景</text>
-  <text x="36" y="76" fill="#94a3b8" font-size="12">全部可识别信息（项目名 / 机构 / 姓名 / 手机 / 证件 / ID / 域名）均已移除 · 仅保留统计口径</text>
+  <text x="36" y="52" fill="#f1f5f9" font-size="23" font-weight="600">安全评估 · 成果全景</text>
+  <text x="36" y="76" fill="#94a3b8" font-size="12">仅展示测试类型与统计口径 · 不含任何具体平台、目标、机构、姓名或域名</text>
 
   <g>
-    <rect x="36" y="98" width="200" height="82" rx="8" fill="url(#card)" stroke="#334155"/>
-    <text x="56" y="128" fill="#60a5fa" font-size="26" font-weight="700">35</text>
-    <text x="56" y="156" fill="#cbd5e1" font-size="12">评估目标数</text>
+    <rect x="36" y="98" width="164" height="80" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="54" y="130" fill="#60a5fa" font-size="25" font-weight="700">35</text>
+    <text x="54" y="158" fill="#cbd5e1" font-size="12">覆盖目标</text>
 
-    <rect x="250" y="98" width="200" height="82" rx="8" fill="url(#card)" stroke="#334155"/>
-    <text x="270" y="128" fill="#60a5fa" font-size="26" font-weight="700">300+</text>
-    <text x="270" y="156" fill="#cbd5e1" font-size="12">覆盖接口数</text>
+    <rect x="212" y="98" width="164" height="80" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="230" y="130" fill="#60a5fa" font-size="25" font-weight="700">1500+</text>
+    <text x="230" y="158" fill="#cbd5e1" font-size="12">梳理接口</text>
 
-    <rect x="464" y="98" width="200" height="82" rx="8" fill="url(#card)" stroke="#334155"/>
-    <text x="484" y="128" fill="#f87171" font-size="26" font-weight="700">5</text>
-    <text x="484" y="156" fill="#cbd5e1" font-size="12">可复现越权点</text>
+    <rect x="388" y="98" width="164" height="80" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="406" y="130" fill="#60a5fa" font-size="25" font-weight="700">3300+</text>
+    <text x="406" y="158" fill="#cbd5e1" font-size="12">证据文件</text>
 
-    <rect x="678" y="98" width="206" height="82" rx="8" fill="url(#card)" stroke="#334155"/>
-    <text x="698" y="128" fill="#4ade80" font-size="26" font-weight="700">0</text>
-    <text x="698" y="156" fill="#cbd5e1" font-size="12">真注入（误报已剔除）</text>
+    <rect x="564" y="98" width="164" height="80" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="582" y="130" fill="#f87171" font-size="25" font-weight="700">10+</text>
+    <text x="582" y="158" fill="#cbd5e1" font-size="12">高危问题</text>
+
+    <rect x="740" y="98" width="184" height="80" rx="8" fill="url(#card)" stroke="#334155"/>
+    <text x="758" y="130" fill="#4ade80" font-size="25" font-weight="700">只读</text>
+    <text x="758" y="158" fill="#cbd5e1" font-size="12">全程无写入 / 无破坏</text>
   </g>
 
-  <text x="36" y="212" fill="#e2e8f0" font-size="14" font-weight="600">分项目成果（匿名）</text>
+  <text x="36" y="212" fill="#e2e8f0" font-size="14" font-weight="600">测试类型与成果</text>
 
-  <rect x="36" y="226" width="848" height="96" rx="6" fill="#1e293b"/>
-  <text x="52" y="252" fill="#93c5fd" font-size="13" font-weight="600">项目 A · 医疗平台</text>
-  <text x="52" y="274" fill="#cbd5e1" font-size="11.5">未授权访问 · 全量列表泄露 · 对象越权（PII / 报告 / 财务）· 报告 ID 反拆</text>
-  <text x="52" y="296" fill="#64748b" font-size="11.5">规模：账户 185 · 流水 2.7 万+ · 报告 1900+ · 检查项 1.7 万+ · 患者标识 11</text>
-  <text x="52" y="314" fill="#4ade80" font-size="11.5">5 个越权点全部对照实测通过 · 前端可复现 4 个</text>
+  <rect x="36" y="226" width="888" height="60" rx="6" fill="#1e293b"/>
+  <rect x="36" y="226" width="4" height="60" fill="#f87171"/>
+  <text x="54" y="250" fill="#fca5a5" font-size="13" font-weight="600">注入测试</text>
+  <text x="54" y="272" fill="#cbd5e1" font-size="11.5">1000+ 次请求 · 5~12 类 payload（布尔 / 报错 / 时间 / UNION / XSS / 命令 / 编码绕过）· 2 处确认 · 9 处初筛经时间/布尔/报错对照全部剔除为误报</text>
 
-  <rect x="36" y="330" width="848" height="74" rx="6" fill="#0f172a"/>
-  <text x="52" y="356" fill="#93c5fd" font-size="13" font-weight="600">项目 B · 健康服务</text>
-  <text x="52" y="378" fill="#cbd5e1" font-size="11.5">网关接口 41 个逐个探测 · 免登录配置面可达 · 敏感接口有加密 + 会话防护</text>
-  <text x="52" y="396" fill="#64748b" font-size="11.5">结果：未发现可直接越权点（防护较完整）</text>
+  <rect x="36" y="292" width="888" height="60" rx="6" fill="#0f172a"/>
+  <rect x="36" y="292" width="4" height="60" fill="#fb923c"/>
+  <text x="54" y="316" fill="#fdba74" font-size="13" font-weight="600">越权 / IDOR</text>
+  <text x="54" y="338" fill="#cbd5e1" font-size="11.5">6+ 目标可复现 · 按标识越权读他人档案 / 账单 / 报告 · 响应长度与内容双重对照确认</text>
 
-  <rect x="36" y="412" width="848" height="74" rx="6" fill="#1e293b"/>
-  <text x="52" y="438" fill="#93c5fd" font-size="13" font-weight="600">项目 C · 出行缴费</text>
-  <text x="52" y="460" fill="#cbd5e1" font-size="11.5">自动爬页抓真实请求 · 业务接口 28 个 · 完整请求体 18 个</text>
-  <text x="52" y="478" fill="#64748b" font-size="11.5">越权对照 + 注入测试：0 发现（token 签名 + 网关鉴权生效）</text>
+  <rect x="36" y="358" width="888" height="60" rx="6" fill="#1e293b"/>
+  <rect x="36" y="358" width="4" height="60" fill="#fbbf24"/>
+  <text x="54" y="382" fill="#fcd34d" font-size="13" font-weight="600">未授权访问 / 认证绕过</text>
+  <text x="54" y="404" fill="#cbd5e1" font-size="11.5">零凭证读真实数据 · 伪造身份头 · 配置密文匿名可读 · 有/无凭证对照实测</text>
 
-  <rect x="36" y="494" width="848" height="60" rx="6" fill="#0f172a"/>
-  <text x="52" y="520" fill="#93c5fd" font-size="13" font-weight="600">项目 D · AI 助手插件</text>
-  <text x="52" y="542" fill="#cbd5e1" font-size="11.5">网关鉴权链纯报错驱动摸清 · 无未授权入口</text>
+  <rect x="36" y="424" width="888" height="60" rx="6" fill="#0f172a"/>
+  <rect x="36" y="424" width="4" height="60" fill="#a78bfa"/>
+  <text x="54" y="448" fill="#c4b5fd" font-size="13" font-weight="600">敏感信息与凭据泄露</text>
+  <text x="54" y="470" fill="#cbd5e1" font-size="11.5">明文凭据（云存储 AK/SK、RSA 私钥、签名密钥）· 批量 PII（数千级）· 配置令牌 · 实测列桶验证</text>
 
-  <rect x="36" y="574" width="848" height="58" rx="6" fill="#1e3a5f"/>
-  <text x="52" y="600" fill="#93c5fd" font-size="12">方法：先画攻击面地图 → 找钥匙链 → 对照实验证伪（本人 vs 他人 / 有 vs 无凭证 / 时间中位数）→ 只交付可复现结论</text>
-  <text x="52" y="620" fill="#64748b" font-size="11">图内所有数字为脱敏后的统计口径，不对应任何真实项目、机构或个人</text>
+  <rect x="36" y="490" width="888" height="60" rx="6" fill="#1e293b"/>
+  <rect x="36" y="490" width="4" height="60" fill="#34d399"/>
+  <text x="54" y="514" fill="#6ee7b7" font-size="13" font-weight="600">业务逻辑 · 签名逆向</text>
+  <text x="54" y="536" fill="#cbd5e1" font-size="11.5">支付金额篡改 · 签名算法逆向并复现 · 密文/加密面评估 · 无法闭环的如实降级不夸大</text>
+
+  <rect x="36" y="556" width="888" height="60" rx="6" fill="#0f172a"/>
+  <rect x="36" y="556" width="4" height="60" fill="#60a5fa"/>
+  <text x="54" y="580" fill="#93c5fd" font-size="13" font-weight="600">资产发现与接口侦察</text>
+  <text x="54" y="602" fill="#cbd5e1" font-size="11.5">百级资产探测 · 子域命中 · 静态扫描 + 动态抓包双路 · 接口清单与参数矩阵沉淀</text>
+
+  <rect x="36" y="636" width="888" height="92" rx="6" fill="#1e3a5f"/>
+  <text x="54" y="664" fill="#bfdbfe" font-size="13" font-weight="600">方法：先画攻击面地图 → 找钥匙链 → 对照实验证伪 → 只交付可复现结论</text>
+  <text x="54" y="688" fill="#93c5fd" font-size="11.5">对照：本人 vs 他人 / 有凭证 vs 无凭证 / base vs payload 时间中位数 · 误报必剔除</text>
+  <text x="54" y="712" fill="#64748b" font-size="11">所有数据均为脱敏统计口径，不对应任何真实项目、平台、机构或个人</text>
 </svg>
