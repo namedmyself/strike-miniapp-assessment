@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CDP 控制台</title>
+<style>
+  :root{--bg:#f5f7fa;--card:#fff;--text:#1f2937;--sub:#6b7280;--line:#e5e7eb;--green:#16a34a;--red:#dc2626;--blue:#2563eb;--amber:#d97706}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;padding:28px}
+  .wrap{max-width:720px;margin:0 auto}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{color:var(--sub);font-size:13px;margin-bottom:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .status-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .status-row:last-child{border-bottom:none}
+  .dot{width:12px;height:12px;border-radius:50%;background:#9ca3af;flex:none}
+  .dot.on{background:var(--green);box-shadow:0 0 0 3px rgba(22,163,74,.15)}
+  .dot.off{background:var(--red)}
+  .name{font-weight:600;min-width:180px}
+  .detail{color:var(--sub);font-size:12px;margin-left:auto;text-align:right}
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  button{border:none;border-radius:8px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;transition:.15s}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .btn-start{background:var(--blue);color:#fff}
+  .btn-start:hover:not(:disabled){background:#1d4ed8}
+  .btn-stop{background:var(--red);color:#fff}
+  .btn-stop:hover:not(:disabled){background:#b91c1c}
+  .btn-exit{background:#fff;color:var(--sub);border:1px solid var(--line)}
+  .btn-exit:hover{background:#f3f4f6;color:var(--text)}
+  .overall{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;background:#f3f4f6;color:var(--sub)}
+  .overall.ready{background:#dcfce7;color:var(--green)}
+  .overall.down{background:#fee2e2;color:var(--red)}
+  .overall .dot{width:9px;height:9px}
+  .hint{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;padding:12px 14px;border-radius:8px;font-size:13px;line-height:1.6;margin-top:14px}
+  .log{background:#0f172a;color:#94a3b8;border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:11px;line-height:1.6;max-height:180px;overflow:auto;white-space:pre-wrap}
+  .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+  .msg{font-size:13px;margin-top:10px;min-height:18px;color:var(--sub)}
+  .msg.ok{color:var(--green)} .msg.err{color:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>CDP 控制台</h1>
+      <div class="sub">小程序动态分析链路 · 无后台守护 · 全程手动可控</div>
+    </div>
+    <span id="overall" class="overall"><span class="dot"></span><span>检测中...</span></span>
+  </div>
+
+  <div class="card">
+    <div class="status-row">
+      <span class="dot" id="dot-engine"></span>
+      <span class="name">调试引擎 (9421 / 62000)</span>
+      <span class="detail" id="detail-engine">-</span>
+    </div>
+    <div class="status-row">
+      <span class="dot" id="dot-mcp"></span>
+      <span class="name">MCP Server (49999)</span>
+      <span class="detail" id="detail-mcp">-</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="btns">
+      <button class="btn-start" id="btnStart">启动 CDP</button>
+      <button class="btn-stop" id="btnStop">停止 CDP</button>
+      <button class="btn-exit" id="btnExit">退出服务</button>
+    </div>
+    <div class="msg" id="msg"></div>
+    <div class="hint">
+      用法：点「启动 CDP」→ 打开小程序 → 回对话说「开了」。测完点「停止 CDP」；不用了点「退出服务」彻底关闭本页面服务。<br>
+      所有进程由本页面精确管理，不弹任何命令行窗口，无后台常驻守护。
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="name" style="margin-bottom:10px">运行日志</div>
+    <div class="log" id="log"></div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+function setDot(id,on){ $(id).className = 'dot ' + (on===true?'on':on===false?'off':''); }
+function msg(t,cls){ $('msg').textContent=t; $('msg').className='msg '+(cls||''); }
+
+async function refresh(){
+  try{
+    const s = await (await fetch('/api/status')).json();
+    setDot('dot-engine', s.engine.port_9421 && s.engine.port_62000);
+    setDot('dot-mcp', s.mcp.port_49999);
+    $('detail-engine').textContent = (s.engine.port_9421&&s.engine.port_62000 ? '运行中' : '未运行') + (s.engine.pid? ' · PID '+s.engine.pid : '');
+    $('detail-mcp').textContent = (s.mcp.port_49999 ? '运行中' : '未运行') + (s.mcp.pid? ' · PID '+s.mcp.pid : '');
+    const o=$('overall');
+    o.className='overall '+(s.cdp_ready?'ready':'down');
+    o.querySelector('.dot').className='dot '+(s.cdp_ready?'on':'off');
+    o.querySelector('span:last-child').textContent = s.cdp_ready?'CDP 就绪':'CDP 未就绪';
+  }catch(e){ msg('状态获取失败','err'); }
+}
+async function loadLog(){
+  try{ const r=await (await fetch('/api/log')).json(); $('log').textContent=(r.lines||[]).join('\n'); $('log').scrollTop=$('log').scrollHeight; }catch(e){}
+}
+async function act(path,btn){
+  btn.disabled=true;
+  try{
+    const r=await (await fetch(path,{method:'POST'})).json();
+    if(path==='/api/start') msg('已发送启动指令，等待端口就绪…','ok');
+    else if(path==='/api/stop') msg('已停止 CDP 进程','ok');
+    else if(path==='/api/exit') msg('服务正在退出…','ok');
+    setTimeout(refresh,2500);
+  }catch(e){ msg('操作失败：'+e,'err'); }
+  finally{ btn.disabled=false; }
+}
+$('btnStart').onclick = e => act('/api/start', e.target);
+$('btnStop').onclick  = e => act('/api/stop', e.target);
+$('btnExit').onclick  = async e => {
+  if(!confirm('确定退出控制台服务？这会同时停止 CDP 并关闭本页面。')) return;
+  e.target.disabled=true;
+  await fetch('/api/exit',{method:'POST'});
+  document.body.innerHTML='<div style="max-width:720px;margin:60px auto;text-align:center;color:#6b728x">服务已退出，可以关闭本页面。</div>';
+};
+refresh(); loadLog();
+setInterval(refresh,3000);
+setInterval(loadLog,4000);
+</script>
+</body>
+</html>

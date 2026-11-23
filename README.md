@@ -112,7 +112,23 @@ python strike.py report                          # 归档报告
 4. **可复现优先**：宁可少报，不报复现不了的点。
 5. **进程常驻**：任务结束不退出服务，避免反复重开的成本。
 
-详见 [`AGENT.md`](AGENT.md)。
+详见 [`AGENT.md`](AGENT.md)，以及脱敏后的
+[`验证方法论与成果口径`](docs/验证方法论与成果口径.md)（对照实验设计、签名场景动态测试路线、敏感度与定级原则）。
+
+---
+
+## 可控调试链路（Web 控制台）
+
+`tools/web-console/` 提供一个零依赖本地 Web 面板，用来可控地启动/停止 CDP 调试链路：
+点按钮完成「启动 / 停止 / 退出」，全程无窗、无后台守护拉起多份、精确 PID 管理。
+配套无窗 Frida 注入器，避免旧方案反复弹窗与端口冲突（Errno 10048）。
+
+```bash
+python tools/web-console/server.py        # 默认 127.0.0.1:47821
+# 浏览器打开 http://127.0.0.1:47821/
+```
+
+详见 [`tools/web-console/README.md`](tools/web-console/README.md)。
 
 ---
 
